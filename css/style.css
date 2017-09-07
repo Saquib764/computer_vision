@@ -1,0 +1,152 @@
+body{
+	font-family: 'Raleway', sans-serif;
+	color: black;
+	font-size: 16px;
+	-webkit-font-smoothing: antialiased;
+	position: relative;
+	margin: 0;
+}
+
+.topic{
+	width: 100%;
+	font-size: 2em;
+	line-height: 2.5em;
+	background: yellow;
+	margin-bottom: 10px;
+}
+.topic>span{
+	padding-left: 30%;
+}
+
+.content{
+	width: 20%;
+	display: block;
+	margin-left: 8%;
+	position: fixed;
+	border-left: 2px solid #ddd;
+	/*top: 0;*/
+}
+.content>div{
+	padding: 10px;
+}
+.content a{
+	text-decoration: none;
+	color: grey;
+	font-size: 1.2em;
+	display: block;
+	line-height: 1.5em;
+}
+.content a.current{
+	color: black;
+}
+.container{
+	width: 60%;
+	display: block;
+	margin-left: 30%;
+	margin-right: 10%;
+	margin-top: 50px;
+	margin-bottom: 30px;
+}
+
+.heading{
+	letter-spacing: 1px;
+	margin-bottom: 0.3em;
+}
+.detail{
+	width: 100%;
+	color: #555;
+	font-size: 0.9em;
+	margin-bottom: 15px;
+}
+.detail>span{
+	margin-right: 15px;
+	display: inline-flex;
+}
+.detail>span:not(.tag):after{
+	content: " ";
+	width: 0px;
+	height: 0px;
+	position: relative;
+	left: 10px;
+	border-radius: 5px;
+	border: solid #666 3px;
+	top: 7px;
+}
+.detail>span.tag{
+	background: #eee;
+	padding: 0px 6px;
+	margin-right: 5px;
+	font-size: 0.9em;
+}
+p{
+	line-height: 1.5em;
+	letter-spacing: 1px;
+	word-spacing: 1px;
+	text-align: justify;
+}
+
+@media only screen and (max-width: 600px){
+	body{
+		font-size: 14px;
+	}
+	.topic>span{
+		padding-left: 10px;
+	}
+
+	.content{
+		width: 95%;
+		margin: auto;
+		background: #f7f7f7;
+		position: relative;
+		display: block;
+	}
+	.container{
+		width: 95%;
+		margin: auto;
+	}
+	.detail>span:not(.tag):after{
+		border: solid #666 2px;
+	}
+
+	.CodeMirror.cm-s-default{
+		font-size: 9px;
+	}
+}
+
+.code-pre{
+	padding: 15px;
+	padding-bottom: 20px;
+	background: #f7f7f7;
+	border-radius: 2px;
+	color: rgb(40, 40, 40);
+	font-size: .9em;
+	overflow-x: overlay;
+}
+
+span.cm-comment {
+	color: #8c868f !important;
+}
+.CodeMirror.cm-s-default{
+	height: 400px;
+	font-size: 12px;
+	border-left: 1px solid #ddd;
+	margin-top: 10px;
+}
+.CodeMirror.cm-s-default:before{
+	content: "Code:";
+	background: #f7f7f7;
+	line-height: 2em;
+	display: block;
+	border-top: 1px #ddd solid;
+	padding-left: 5px;
+	color: grey;
+	font-size: 1.1em;
+}
+
+.key, p span{
+	padding: 2px 5px;
+	background: #eee;
+	font-style: italic;
+	font-size: 0.9em;
+}
+

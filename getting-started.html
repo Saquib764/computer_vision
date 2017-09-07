@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+
+<title>Computer Vision: Install OpenCV</title>
+<meta charset="UTF-8">
+<meta name="author" content="Md Saquib Alam">
+
+<meta http-equiv="cache-control" content="max-age=0" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="expires" content="0" />
+<meta http-equiv="expires" content="Tue, 01 Jan 2020 1:00:00 GMT" />
+<meta http-equiv="pragma" content="no-cache" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link href="https://fonts.googleapis.com/css?family=Raleway|Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.29.0/codemirror.min.css">
+
+<link rel="stylesheet" href="css/style.css">
+
+<style type="text/css">
+</style>
+
+</head>
+
+<body>
+	<div class="topic"><span>Computer Vision with OpenCV</span></div>
+	<div class="content">
+		<div>
+			<h2>Content</h2>
+			<a href="/install-opencv">Install OpenCV</a>
+			<a href="/getting-started">Getting started</a>
+		</div>
+	</div>
+	<div class="container">
+		<h1 class="heading">2. Getting started with OpenCV on python</h1>
+		<div class="detail">
+			<span>Posted on Sept 6, 2017</span>
+			<span>1.5m</span>
+			<span class="tag">OpenCV</span>
+			<span class="tag">Python</span>
+		</div>
+
+		<pre class="code-pre "><code langs="">Still under development</code></pre>
+
+		<h2 class="heading">Introduction</h2>
+		<p>Aim to this tutorial i to just test the installation and check if basics are set up by creating a simple application that capture your video from your webcam and how it on a window.</p>
+
+		<p>Recommended for beginners as it will get them familiar with OpenCV and partly with Python. Skip if you are already familiar.</p>
+
+		<h3>Create and execute a python script</h3>
+		<p>Create a new file on <span class="key">Sublime</span> or your favorite code editor. Type the following code and save it to file say <span class="key">first_opencv.py</span>. Read the comments carefully to understand each line.</p>
+
+		<textarea class="code">
+import cv2
+
+# Starts video stream from webcam
+cap = cv2.VideoCapture(0)
+
+# Start while loop to capture frame from stream
+while(True):
+
+	# Read frame
+	ret, frame = cap.read()
+
+	# Do some processing here. All your code goes here
+
+	# Display desired image on a window
+	cv2.imshow("Frame", frame)
+
+	# Wait for uer key press
+	cmd = cv2.waitKey(1)
+
+	# Exit when presses 'spacebar'
+	if cmd == 32:
+		break;
+
+# Turn-off camera when done.
+cap.release()
+
+# Close all window/s
+cv2.destroyAllWindows()
+
+
+		</textarea>
+
+		<p>Now naviagate to file in terminal and execute the program.</p>
+		
+		<pre class="code-pre "><code langs="">python3 first_opencv.py</code></pre>
+
+		<p>This program simply displays the webcam feed. Press <span class="key">Enter</span> to exit.</p>
+
+		<h3>Turn camera feed into grayscale</h3>
+		<p>Now that we have got the basic set-up, lets dig deeper and get a feel of how to process the feeds.</p>
+
+		<p>We will now diplay orginal feed and grayscale side by side. To do this we simply add one line in <span class="key">processing</span> part as follow -</p>
+		<textarea class="code">
+import cv2
+
+# Starts video stream from webcam
+cap = cv2.VideoCapture(0)
+
+# Start while loop to capture frame from stream
+while(True):
+
+	# Read frame
+	ret, frame = cap.read()
+
+	# Do some processing here
+	# This convert image to grayscale
+	gray_image = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+
+	# Display desired image on a window
+	cv2.imshow("Frame", frame)
+
+	# Show gray image
+	cv2.imshow("Grayscale", gray_image)
+
+	# Wait for uer key press
+	cmd = cv2.waitKey(1)
+
+	# Exit when presses 'spacebar'
+	if cmd == 32:
+		break;
+
+# Turn-off camera when done.
+cap.release()
+
+# Close all window/s
+cv2.destroyAllWindows()
+
+
+		</textarea>
+
+		<h3>Further processing and effects</h3>
+		<p>By now you must have a pretty good idea of how to stucture your program for opencv. You can try further effects by replacing <span>grayscale</span> line with desired.</p>
+		<textarea class="code">
+
+#	All other stuff
+
+#	
+
+		</textarea>
+
+		Enjoy :)
+	</div>
+	
+</body>
+
+<script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.29.0/codemirror.min.js'></script>
+
+<script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.29.0/mode/python/python.min.js'></script>
+
+<script type="text/javascript" src='js/code.js'></script>
+
+<!-- <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-104247270-1', 'auto');
+  ga('send', 'pageview');
+
+</script> -->
+
+
+</html>

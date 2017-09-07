@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+
+<title>Computer Vision: Install OpenCV</title>
+<meta charset="UTF-8">
+<meta name="author" content="Md Saquib Alam">
+
+<meta http-equiv="cache-control" content="max-age=0" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="expires" content="0" />
+<meta http-equiv="expires" content="Tue, 01 Jan 2020 1:00:00 GMT" />
+<meta http-equiv="pragma" content="no-cache" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link href="https://fonts.googleapis.com/css?family=Raleway|Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.29.0/codemirror.min.css">
+
+<link rel="stylesheet" href="css/style.css">
+
+<style type="text/css">
+</style>
+
+</head>
+
+<body>
+	<div class="topic"><span>Computer Vision with OpenCV</span></div>
+	<div class="content">
+		<div>
+			<h2>Content</h2>
+			<a href="/install-opencv">Install OpenCV</a>
+			<a href="/getting-started">Getting started</a>
+		</div>
+	</div>
+	<div class="container">
+		<h1 class="heading">1. Installing OpenCV</h1>
+		<div class="detail">
+			<span>Posted on Sept 6, 2017</span>
+			<span>1.5m</span>
+			<span class="tag">OpenCV</span>
+			<span class="tag">Python</span>
+			<span class="tag">Ubuntu</span>
+		</div>
+
+		<h2 class="heading">Installation on Ubuntu or Debian</h2>
+		<p>OpenCV can be installed either from the Ubuntu or Debian repository or from the official site.</p>
+
+		<h3>OPTION 1: Install from repository</h3>
+		<p>Use below command to intall OpenCV from repository:</p>
+		<pre class="code-pre "><code langs="">sudo apt-get install libopencv-dev python-opencv</code></pre>
+		<p>Its important to note that Python3 bindings does not exist in this repository.</p>
+
+		<h3>OPTION 2: Install from official site</h3>
+		<p>Installation from official site is a bit lengthy but easy and installs latest version. But I found a bash script by <a href="https://github.com/milq">milq</a> that does all the hardwork for us. Follow the following steps.</p>
+
+		<p>Download the installation script <a href="https://github.com/milq/milq/blob/master/scripts/bash/install-opencv.sh">install-opencv.sh</a>.</p>
+		<p>Content of script:</p>
+
+		<textarea class="code">
+######################################
+# INSTALL OPENCV ON UBUNTU OR DEBIAN #
+######################################
+
+# |         THIS SCRIPT IS TESTED CORRECTLY ON         |
+# |----------------------------------------------------|
+# | OS             | OpenCV       | Test | Last test   |
+# |----------------|--------------|------|-------------|
+# | Ubuntu 16.04.2 | OpenCV 3.2.0 | OK   | 20 May 2017 |
+# | Debian 8.8     | OpenCV 3.2.0 | OK   | 20 May 2017 |
+# | Debian 9.0     | OpenCV 3.2.0 | OK   | 25 Jun 2017 |
+
+# 1. KEEP UBUNTU OR DEBIAN UP TO DATE
+
+sudo apt-get -y update
+sudo apt-get -y upgrade
+sudo apt-get -y dist-upgrade
+sudo apt-get -y autoremove
+
+
+# 2. INSTALL THE DEPENDENCIES
+
+# Build tools:
+sudo apt-get install -y build-essential cmake
+
+# GUI (if you want to use GTK instead of Qt, replace 'qt5-default' with 'libgtkglext1-dev' and remove '-DWITH_QT=ON' option in CMake):
+sudo apt-get install -y qt5-default libvtk6-dev
+
+# Media I/O:
+sudo apt-get install -y zlib1g-dev libjpeg-dev libwebp-dev libpng-dev libtiff5-dev libjasper-dev libopenexr-dev libgdal-dev
+
+# Video I/O:
+sudo apt-get install -y libdc1394-22-dev libavcodec-dev libavformat-dev libswscale-dev libtheora-dev libvorbis-dev libxvidcore-dev libx264-dev yasm libopencore-amrnb-dev libopencore-amrwb-dev libv4l-dev libxine2-dev
+
+# Parallelism and linear algebra libraries:
+sudo apt-get install -y libtbb-dev libeigen3-dev
+
+# Python:
+sudo apt-get install -y python-dev python-tk python-numpy python3-dev python3-tk python3-numpy
+
+# Java:
+sudo apt-get install -y ant default-jdk
+
+# Documentation:
+sudo apt-get install -y doxygen
+
+
+# 3. INSTALL THE LIBRARY (YOU CAN CHANGE '3.2.0' FOR THE LAST STABLE VERSION)
+
+sudo apt-get install -y unzip wget
+wget https://github.com/opencv/opencv/archive/3.2.0.zip
+unzip 3.2.0.zip
+rm 3.2.0.zip
+mv opencv-3.2.0 OpenCV
+cd OpenCV
+mkdir build
+cd build
+cmake -DWITH_QT=ON -DWITH_OPENGL=ON -DFORCE_VTK=ON -DWITH_TBB=ON -DWITH_GDAL=ON -DWITH_XINE=ON -DBUILD_EXAMPLES=ON -DENABLE_PRECOMPILED_HEADERS=OFF ..
+make -j4
+sudo make install
+sudo ldconfig
+
+
+# 4. EXECUTE SOME OPENCV EXAMPLES AND COMPILE A DEMONSTRATION
+
+# To complete this step, please visit 'http://milq.github.io/install-opencv-ubuntu-debian'.
+
+		</textarea>
+		
+		<p>Once downloaded the script, open your terminal and excute the following command:</p>
+		<pre class="code-pre "><code langs="">bash install-opencv.sh</code></pre>
+		<p>and simply wait for it to complete installation.</p>
+
+		<h2 class="heading">Check for installed version</h2>
+		<p>To check for verion of opencv installed, execute following command to start python shell:</p>
+		<pre class="code-pre "><code langs="">pthon3</code></pre>
+
+		<p>Then run the following python script</p>
+		<pre class="code-pre "><code langs="">>>> from cv2 import __version__
+>>> __version__
+'3.3.0'	</code></pre>
+
+		<p>and you are done. Enjoy! :)</p>
+
+	</div>
+	
+</body>
+
+<script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.29.0/codemirror.min.js'></script>
+
+<script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.29.0/mode/python/python.min.js'></script>
+
+<script type="text/javascript" src='js/code.js'></script>
+
+<!-- <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-104247270-1', 'auto');
+  ga('send', 'pageview');
+
+</script> -->
+
+
+</html>
