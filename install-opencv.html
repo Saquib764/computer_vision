@@ -31,11 +31,12 @@
 </head>
 
 <body>
-	<div class="topic"><span>Computer Vision with OpenCV</span></div>
+	<div class="topic"><span><a href="/">Computer Vision with OpenCV</a></span></div>
 	<div class="content">
 		<div>
 			<h2>Content</h2>
 			<a href="/install-opencv">Install OpenCV</a>
+			<a href="/install-opencv-contrib">OpenCV with contrib module</a>
 			<a href="/getting-started">Getting started</a>
 		</div>
 	</div>
@@ -43,14 +44,14 @@
 		<h1 class="heading">1. Installing OpenCV</h1>
 		<div class="detail">
 			<span>Posted on Sept 6, 2017</span>
-			<span>1.5m</span>
+			<span>20m</span>
 			<span class="tag">OpenCV</span>
 			<span class="tag">Python</span>
 			<span class="tag">Ubuntu</span>
 		</div>
 
 		<h2 class="heading">Installation on Ubuntu or Debian</h2>
-		<p>OpenCV can be installed either from the Ubuntu or Debian repository or from the official site.</p>
+		<p>OpenCV can be installed either from the Ubuntu or Debian repository or from the official site. This does not install other important openCV modules like <span>Aruco, SIFT, SURF etc</span>. To build OpenCV with <span>opencv_contrib</span> modules, please follow <a href="/install-opencv-contrib">this</a> tutorial.</p>
 
 		<h3>OPTION 1: Install from repository</h3>
 		<p>Use below command to intall OpenCV from repository:</p>
@@ -139,14 +140,14 @@ sudo ldconfig
 
 		<h2 class="heading">Check for installed version</h2>
 		<p>To check for verion of opencv installed, execute following command to start python shell:</p>
-		<pre class="code-pre "><code langs="">pthon3</code></pre>
+		<pre class="code-pre "><code langs="">python</code></pre>
 
 		<p>Then run the following python script</p>
 		<pre class="code-pre "><code langs="">>>> from cv2 import __version__
 >>> __version__
 '3.3.0'	</code></pre>
 
-		<p>and you are done. Enjoy! :)</p>
+		<p>and you are ready to rock. Enjoy! :)</p>
 
 	</div>
 	
@@ -159,13 +160,13 @@ sudo ldconfig
 <script type="text/javascript" src='js/code.js'></script>
 
 <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-104247270-2', 'auto');
-  ga('send', 'pageview');
+	ga('create', 'UA-104247270-2', 'auto');
+	ga('send', 'pageview');
 
 </script>
 

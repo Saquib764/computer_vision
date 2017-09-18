@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+
+<title>Computer Vision: Install OpenCV</title>
+<meta charset="UTF-8">
+<meta name="author" content="Md Saquib Alam">
+
+<meta name="description" content="Computer vision tutorial for beginners using OpenCV and Python.">
+<meta name="keywords" content="Computer Vision, Python, OpenCV, opencv-python, tutorial, install, Ubuntu">
+
+<meta http-equiv="cache-control" content="max-age=0" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="expires" content="0" />
+<meta http-equiv="expires" content="Tue, 01 Jan 2020 1:00:00 GMT" />
+<meta http-equiv="pragma" content="no-cache" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link href="https://fonts.googleapis.com/css?family=Raleway|Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.29.0/codemirror.min.css">
+
+<link rel="stylesheet" href="css/style.css">
+
+<style type="text/css">
+</style>
+
+</head>
+
+<body>
+	<div class="topic"><span><a href="/">Computer Vision with OpenCV</a></span></div>
+	<div class="content">
+		<div>
+			<h2>Content</h2>
+			<a href="/install-opencv">Install OpenCV</a>
+			<a href="/install-opencv-contrib">OpenCV with contrib module</a>
+			<a href="/getting-started">Getting started</a>
+		</div>
+	</div>
+	<div class="container">
+		<h1 class="heading">1. Installing OpenCV with contrib module</h1>
+		<div class="detail">
+			<span>Posted on Sept 17, 2017</span>
+			<span>40m</span>
+			<span class="tag">OpenCV</span>
+			<span class="tag">Python</span>
+			<span class="tag">OpenCV_contrib</span>
+			<span class="tag">Ubuntu</span>
+		</div>
+
+		<h2 class="heading">Installation on Ubuntu or Debian</h2>
+		<p>OpenCV has many non-free modules which are included in <a href="https://github.com/opencv/opencv_contrib" target="_blank">this contrib</a>.</p>
+
+		<h3>Update your Ubuntu/Debian</h3>
+		<pre class="code-pre "><code langs="">sudo apt-get -y update
+sudo apt-get -y upgrade
+sudo apt-get -y dist-upgrade
+sudo apt-get -y autoremove</code></pre>
+
+		<h3>Install dependencies</h3>
+		<p>Simply copy paste all the lines at once.</p>
+		<pre class="code-pre "><code langs="">sudo apt-get install -y build-essential cmake
+sudo apt-get install -y qt5-default libvtk6-dev
+sudo apt-get install -y zlib1g-dev libjpeg-dev libwebp-dev libpng-dev libtiff5-dev libjasper-dev libopenexr-dev libgdal-dev
+sudo apt-get install -y libdc1394-22-dev libavcodec-dev libavformat-dev libswscale-dev libtheora-dev libvorbis-dev libxvidcore-dev libx264-dev yasm libopencore-amrnb-dev libopencore-amrwb-dev libv4l-dev libxine2-dev
+sudo apt-get install -y libtbb-dev libeigen3-dev
+sudo apt-get install -y python-dev python-tk python-numpy python3-dev python3-tk python3-numpy
+sudo apt-get install -y ant default-jdk</code></pre>
+
+
+		<h3>Download/clone OpenCV</h3>
+		<p>Download .zip stable verion of OpenCV from <a href="http://opencv.org/releases.html">here</a>. Download the <span>Source Archive</span> and unpack it into your working directory.</p>
+		<p>OR</p>
+		<p>You can also clone the latest OpenCV from its <a href="https://github.com/opencv/opencv.git">Git repository</a>.</p>
+
+		<pre class="code-pre "><code langs="">cd ~/my-working-directory
+git clone https://github.com/opencv/opencv.git</code></pre>
+
+		<h3>Clone OpenCV contib modules</h3>
+		<p>Clone the cutting-edge opencv_contrib module into your working directory.</p>
+		<pre class="code-pre "><code langs="">git clone https://github.com/opencv/opencv_contrib.git</code></pre>
+
+		<h3>Build OpenCV from source using CMake</h3>
+		<p>Create a temporary folder inside your opencv source folder. For example <span>build</span></p>
+		<pre class="code-pre "><code langs="">cd ~/my-working-directory
+cd ./opencv-YOUR-VERSION
+mkdir build
+cd build</code></pre>
+		
+		<p>Configure your opencv build to include opencv_contrib modules.</p>
+		<pre class="code-pre "><code langs="">cmake -DOPENCV_EXTRA_MODULES_PATH=../../opencv_contrib-master>/modules ..
+make -j4</code></pre>
+	
+		<p><span>-j4</span> run this process in 4 cores in parallel. Thus, if you have more core for example 8 then imply use thi code to get it done faster. However, this will take sometime in general.</p>
+		<pre class="code-pre "><code langs="">make -j8</code></pre>
+
+		<h3>Install the build</h3>
+		<p>Once above code is completed, install the binaries.</p>
+		<pre class="code-pre "><code langs="">sudo make install</code></pre>
+
+
+		<h3>Check installation</h3>
+		<p>Test you installed version by importing modules from opencv_contrib in python shell.</p>
+		<pre class="code-pre "><code langs="">>>> import cv2.aruco as aruco</code></pre>
+
+		<p>This should compile without any error.</p>
+
+		<p>And as usual, Enjoy! :)</p>
+
+	</div>
+	
+</body>
+
+<script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.29.0/codemirror.min.js'></script>
+
+<script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.29.0/mode/python/python.min.js'></script>
+
+<script type="text/javascript" src='js/code.js'></script>
+
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-104247270-2', 'auto');
+	ga('send', 'pageview');
+
+</script>
+
+
+</html>

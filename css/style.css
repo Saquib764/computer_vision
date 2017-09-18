@@ -14,6 +14,10 @@ body{
 	background: yellow;
 	margin-bottom: 10px;
 }
+.topic a{
+	text-decoration: none;
+	color: black;
+}
 .topic>span{
 	padding-left: 30%;
 }
@@ -31,10 +35,13 @@ body{
 }
 .content a{
 	text-decoration: none;
-	color: grey;
-	font-size: 1.2em;
+	color: gray;
+	font-size: 1em;
 	display: block;
 	line-height: 1.5em;
+}
+.content a:hover{
+	color: black;
 }
 .content a.current{
 	color: black;
@@ -150,3 +157,6 @@ span.cm-comment {
 	font-size: 0.9em;
 }
 
+p a{
+	font-style: italic;
+}
