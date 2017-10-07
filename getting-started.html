@@ -144,19 +144,27 @@ cv2.destroyAllWindows()
 		<p>By now you must have a pretty good idea of how to stucture your program for opencv. You can try further effects by replacing <span>grayscale</span> line with desired.</p>
 		<textarea class="code">
 
-#	All other stuff
+#	Few useful operations
 
 #	Useful for color and shade comparision
 hsv_image = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
 
-#	Other conversion
+#	Other conversions
 effect_image = cv2.cvtColor(frame, cv2.COLOR_BGR2YCrCb)
 effect_image = cv2.cvtColor(frame, cv2.COLOR_BGR2Luv)
+
+#	Calculate difference in image. Very useful for motion detection
+gframe1 = cv2.cvtColor(frame1, cv2.COLOR_BGR2GRAY)
+gframe2 = cv2.cvtColor(frame2, cv2.COLOR_BGR2GRAY)
+diff = cv2.subtract(gframe1, gframe2)	#	Results in difference 
+diff_sum = diff.sum()					#	Sum of all pixel values.
 
 
 		</textarea>
 		<br>
 		Enjoy :)
+		<br>
+		<div id="disqus_thread"></div>
 	</div>
 	
 </body>
@@ -178,5 +186,24 @@ effect_image = cv2.cvtColor(frame, cv2.COLOR_BGR2Luv)
 
 </script>
 
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+
+var disqus_config = function () {
+// this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = "cvision_03"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://mosaal-com.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
 </html>
